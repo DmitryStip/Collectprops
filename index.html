@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="./src/script.js"></script>
+
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <h1>create an account</h1>
+            <p>We always keep your name and email address private</p>
+        </header>
+        <form>
+            <div id="form-container">
+                <div id="outer-input-container">
+                    <div class="inner-input-countainer">
+                        <input type="text" name="firstName" placeholder="First name">
+                        <input type="text" name="lastName" placeholder="Last name">
+                    </div>
+                    <div class="inner-input-countainer">
+                        <input type="text" name="nickName" placeholder="Display name">
+                        <input type="email" name="email" placeholder="Email address">
+                    </div>
+                    <div class="inner-input-countainer">
+                        <input type="password" name="password" placeholder="Password">
+                        <input type="password" name="c-password" placeholder="Password Confirmation">
+                    </div>
+                </div>
+                <div id="radio-container">
+                    <div class="radio-wrapper">
+                        <div class="radio-inner">
+                            <input type="radio" name="customer" id="buyer">
+                            <label for="buyer">Join as a Buyer</label>
+                        </div>
+                        <p>I am looking for a Name, Logo or Tagline for my business, brand or product.</p>
+                    </div>
+                    <div class="radio-wrapper">
+                        <div>
+                            <input type="radio" name="customer" id="creator">
+                            <label for="creator">Join as a Creative or Marketplace Seller</label>
+                        </div>
+                        <p>I plan to submit name ideas, Logo designes or sell names in Domain Marketplace.</p>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="allow">
+                        <label for="allow">Allow Squadhelp to send marketing/promotional offers from time to time</label>
+                    </div>
+                </div>
+                <div> 
+                    <button type="submit">Submit</button>
+                    <button type="reset">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
