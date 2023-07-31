@@ -12,15 +12,17 @@ class Person {
 
 function collectPropsFromForm(event) {
   event.preventDefault();
+  
   const collectionProps = Array.from(
-    document.querySelectorAll('#outer-input-container input[type="text"]')); 
-  const lastName = document.querySelector('input[name="lastName"]')
-  const arrValues = collectionProps.map((item) => item.value);
-  const person = new Person(...arrValues)
+    document.querySelectorAll('#outer-input-container input')
+  );
 
-  localStorage.setItem(`${lastName.value}`, JSON.stringify(person));
-  console.log(collectionProps)
-  console.log(arrValues)
+  const arrValues = collectionProps.map((item) => item.value);
+  const person = new Person(...arrValues);
+
+  localStorage.setItem(`${arrValues[1]}`, JSON.stringify(person));
+  console.log(collectionProps);
+  console.log(arrValues);
 }
 
 btnSubmit.addEventListener('click', collectPropsFromForm)
