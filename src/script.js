@@ -12,17 +12,40 @@ class Person {
 
 function collectPropsFromForm(event) {
   event.preventDefault();
-  
   const collectionProps = Array.from(
-    document.querySelectorAll('#outer-input-container input')
-  );
-
+    document.querySelectorAll('#outer-input-container input[type="text"]')); 
+  const lastName = document.querySelector('input[name="lastName"]')
   const arrValues = collectionProps.map((item) => item.value);
-  const person = new Person(...arrValues);
+  const person = new Person(...arrValues)
 
-  localStorage.setItem(`${arrValues[1]}`, JSON.stringify(person));
-  console.log(collectionProps);
-  console.log(arrValues);
+  localStorage.setItem(`${lastName.value}`, JSON.stringify(person));
+  console.log(collectionProps)
+  console.log(arrValues)
 }
+
+const emailInput = document.querySelector('input[name="email"]');
+let errorElement;
+
+
+function validateEmail() {
+    const reg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (!reg.test(emailInput.value)) {
+        if (!errorElement) {
+            errorElement = document.createElement('div');
+            errorElement.style.color = 'red';
+            errorElement.style.border = '2px solid red';
+            errorElement.textContent = 'You entered an invalid email';
+            emailInput.insertAdjacentElement('afterend', errorElement);
+        }
+    } else {
+        if (errorElement) {
+            errorElement.remove();
+            errorElement = null;
+        }
+    }
+}
+
+emailInput.addEventListener('input', validateEmail);
 
 btnSubmit.addEventListener('click', collectPropsFromForm)
